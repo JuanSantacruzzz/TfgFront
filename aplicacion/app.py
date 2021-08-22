@@ -20,7 +20,7 @@ from tensorflow.python.framework.ops import disable_eager_execution
 disable_eager_execution()
 from cv2 import cv2
 
-@app.route('/')
+@app.route('/', methods=['get', 'post'])
 def inicio():
 	
 	lista=[]
