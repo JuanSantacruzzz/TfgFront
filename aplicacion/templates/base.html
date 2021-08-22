@@ -1,0 +1,44 @@
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+{% endblock %}
+
+{% block title %}TFG Universidad de Sevilla{% endblock %}
+{% block navbar %}
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+         
+          <a class="navbar-brand" href="#">Detección del Alzeimer</a>
+        </div>
+        
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Inteligencia artificial</h1>
+        <p>Trabajo fin de grado Universidad de Sevilla. Juan Santacruz Olías</p>
+        
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col-md-3"></div>
+  	<div class="col-md-8">
+	    {% block contenido %}{% endblock %}
+  	</div>
+  </div>
+</div>
+    
+    
+{% endblock %}

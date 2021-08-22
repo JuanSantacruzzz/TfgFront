@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+
+{% if preds|length > 0 %}
+
+	<h2>Resultado del análisis de la imagen {{filename}} </h2>
+
+	<img src="{{url_for('static',filename='imagenesProcesadas/')}}{{filename}}"/>
+	    
+_	<br/>
+	<br/> 
+
+	<ul>
+	<h3>
+	{% for elemento in preds -%}
+		<li>Hay un <b>{{'%0.2f'| format(elemento[0]*100|float)}}</b> de probablilidad de no tene Alzeimer</li>
+		<li>Hay un <b>{{'%0.2f'| format(elemento[1]*100|float)}}</b> de tener un grado leve de Alzeimer</li>
+		<li>Hay un <b>{{'%0.2f'| format(elemento[2]*100|float)}}</b> de tener una Alzeimer</li>
+	{% endfor -%}
+	</ul>
+	</h3>
+	<h2>La imagen resultante del mapa de calor es</h2>
+	<img src="{{url_for('static',filename='mapaCalor/')}}{{filename}}"/>
+{% else %}
+	<p>No hay resutlados></p>
+{% endif %}
+{% endblock %}
