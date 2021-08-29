@@ -14,9 +14,11 @@ _	<br/>
 	<ul>
 	<h3>
 	{% for elemento in preds -%}
-		<li>Hay un <b>{{'%0.2f'| format(elemento[0]*100|float)}}</b> de probablilidad de no tene Alzeimer</li>
-		<li>Hay un <b>{{'%0.2f'| format(elemento[1]*100|float)}}</b> de tener un grado leve de Alzeimer</li>
-		<li>Hay un <b>{{'%0.2f'| format(elemento[2]*100|float)}}</b> de tener una Alzeimer</li>
+		<li>Hay un <b>{{'%0.2f'| format(elemento[2]*100|float)}}</b> de probabilidad de no tener Alzheimer</li>
+		<li>Hay un <b>{{'%0.2f'| format(elemento[3]*100|float)}}</b> de probabilidad de tener un grado muy leve de Alzheimer</li>
+		<li>Hay un <b>{{'%0.2f'| format(elemento[0]*100|float)}}</b> de probabilidad de tener un grado leve de Alzeimer</li>
+		<li>Hay un <b>{{'%0.2f'| format(elemento[1]*100|float)}}</b> de probabilidad de tener un grado moderado de Alzeimer</li>
+
 	{% endfor -%}
 	</ul>
 	</h3>
