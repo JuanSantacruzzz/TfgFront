@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block contenido %}
-	    <h2>Estudio de las imágenes del celebro de un paciente</h2>
+	<p></p>
+	    <h2 class="text-success" >Estudio de las imágenes del celebro de un paciente</h2>
+		
 
-
+	<p></p>
 
 
 	    {% for field, errors in form.errors.items() %}
@@ -13,9 +15,11 @@
 
 		<form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
     		{{ form.csrf_token }}
-    		{{form.photo.label() }}{{form.photo()}}<br/>
+			<h4 class="text-success">{{form.photo.label() }} </h4>
+			
+    		{{form.photo(class="form-photo form-control-lg") }}<br/>
 			<br/>
-  			{{form.submit()}}
+			<button type="submit" class="btn btn-success">Enviar</button>
 		</form>
 	    
   

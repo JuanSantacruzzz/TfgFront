@@ -3,27 +3,38 @@
 
 
 {% if preds|length > 0 %}
+<div >
+	<p class="text-justify "><h2 class="text-success">Resultado del análisis de la imagen {{filename}} </h2></p>
+	<div class="container-fluid bg-light">
+ 		 <div class="row">
+  			<div class="col-md-2"><img src="{{url_for('static',filename='imagenesProcesadas/')}}{{filename}}"  class="rounded mx-auto d-block"/></div>
+  			<div class="col-md-8">
+				<p class="text-justify ">
+					<ul class="list-group"> 
+						
+					<h5 class="text-success">
+					{% for elemento in preds -%}
+						<li class="list-group-item list-group-item-primary">Hay un <b>{{'%0.2f'| format(elemento[2]*100|float)}}</b> de probabilidad de no tener Alzheimer</li>
+						<li class="list-group-item list-group-item-success">Hay un <b>{{'%0.2f'| format(elemento[3]*100|float)}}</b> de probabilidad de tener un grado muy leve de Alzheimer</li>
+						<li class="list-group-item list-group-item-warning">Hay un <b>{{'%0.2f'| format(elemento[0]*100|float)}}</b> de probabilidad de tener un grado leve de Alzeimer</li>
+						<li class="list-group-item list-group-item-danger">Hay un <b>{{'%0.2f'| format(elemento[1]*100|float)}}</b> de probabilidad de tener un grado moderado de Alzeimer</li>
+				
+					{% endfor -%}
+					</ul>
+					</h5>
+					</p>
+			  </div>
+		 </div>
+	</div>
 
-	<h2>Resultado del análisis de la imagen {{filename}} </h2>
+	
 
-	<img src="{{url_for('static',filename='imagenesProcesadas/')}}{{filename}}"/>
+	
 	    
-_	<br/>
-	<br/> 
-
-	<ul>
-	<h3>
-	{% for elemento in preds -%}
-		<li>Hay un <b>{{'%0.2f'| format(elemento[2]*100|float)}}</b> de probabilidad de no tener Alzheimer</li>
-		<li>Hay un <b>{{'%0.2f'| format(elemento[3]*100|float)}}</b> de probabilidad de tener un grado muy leve de Alzheimer</li>
-		<li>Hay un <b>{{'%0.2f'| format(elemento[0]*100|float)}}</b> de probabilidad de tener un grado leve de Alzeimer</li>
-		<li>Hay un <b>{{'%0.2f'| format(elemento[1]*100|float)}}</b> de probabilidad de tener un grado moderado de Alzeimer</li>
-
-	{% endfor -%}
-	</ul>
-	</h3>
-	<h2>La imagen resultante del mapa de calor es</h2>
-	<img src="{{url_for('static',filename='mapaCalor/')}}{{filename}}"/>
+_	
+	<p class="text-justify ">
+	<h2 class="text-success">Imagen resultante del mapa de calor</h2></p>
+	<img src="{{url_for('static',filename='mapaCalor/')}}{{filename}}" class="rounded mx-auto d-block"/>
 {% else %}
 	<p>No hay resutlados></p>
 {% endif %}
