@@ -14,10 +14,10 @@
 						
 					<h5 class="text-success">
 					{% for elemento in preds -%}
-						<li class="list-group-item list-group-item-primary">Hay un <b>{{'%0.2f'| format(elemento[2]*100|float)}}</b> de probabilidad de no tener Alzheimer</li>
-						<li class="list-group-item list-group-item-success">Hay un <b>{{'%0.2f'| format(elemento[3]*100|float)}}</b> de probabilidad de tener un grado muy leve de Alzheimer</li>
-						<li class="list-group-item list-group-item-warning">Hay un <b>{{'%0.2f'| format(elemento[0]*100|float)}}</b> de probabilidad de tener un grado leve de Alzeimer</li>
-						<li class="list-group-item list-group-item-danger">Hay un <b>{{'%0.2f'| format(elemento[1]*100|float)}}</b> de probabilidad de tener un grado moderado de Alzeimer</li>
+						<li class="list-group-item list-group-item-primary">Hay un <b>{{'%0.2f'| format(elemento[2]*100|float)}}</b>% de no tener Alzheimer</li>
+						<li class="list-group-item list-group-item-success">Hay un <b>{{'%0.2f'| format(elemento[3]*100|float)}}</b>% de tener un grado muy leve de Alzheimer</li>
+						<li class="list-group-item list-group-item-warning">Hay un <b>{{'%0.2f'| format(elemento[0]*100|float)}}</b>% de tener un grado leve de Alzheimer</li>
+						<li class="list-group-item list-group-item-danger">Hay un <b>{{'%0.2f'| format(elemento[1]*100|float)}}</b>% de tener un grado moderado de Alzheimer</li>
 				
 					{% endfor -%}
 					</ul>
